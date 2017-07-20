@@ -25,6 +25,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Roles role;
 
+    @NotEmpty(message = "Please provide an email")
     private String email;
 
     public User() {
