@@ -5,6 +5,8 @@ import com.ak.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 /**
  * Created by arthur on 7/11/17.
  */
@@ -15,6 +17,7 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
+    @Transactional
     public void addUser(User user) {
         userDao.addUser(user);
     }
