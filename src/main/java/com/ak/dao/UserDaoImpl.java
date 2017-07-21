@@ -1,11 +1,6 @@
 package com.ak.dao;
 
-import com.ak.entity.User;
-import org.postgresql.ds.PGSimpleDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcOperations;
-import org.springframework.jdbc.support.incrementer.PostgreSQLSequenceMaxValueIncrementer;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import com.ak.entity.Uzer;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -21,13 +16,13 @@ public class UserDaoImpl implements UserDao {
     private EntityManager em;
 
     @Override
-    public void addUser(User user) {
+    public void addUser(Uzer user) {
         em.persist(user);
     }
 
     @Override
-    public User getUserByName(String name) {
-        return em.createQuery("from USER u where u.name = :name", User.class)
+    public Uzer getUserByName(String name) {
+        return em.createQuery("from Uzer u where u.name=:name", Uzer.class)
                 .setParameter("name", name)
                 .getSingleResult();
     }
