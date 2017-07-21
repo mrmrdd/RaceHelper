@@ -44,7 +44,6 @@ public class UserController {
         if(bindingResult.hasErrors())
             return "/registration";
 
-        model.addAttribute("successMessage", "You registered successfully");
         user.setRole(Roles.USER);
         userService.addUser(user);
         return "/login";
