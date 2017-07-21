@@ -39,7 +39,7 @@ public class DBConfig implements TransactionManagementConfigurer {
     private String hbm2ddlAuto;
 
     @Bean
-    public DataSource configureDataSource() {
+    public DataSource dataSource() {
         HikariConfig config = new HikariConfig();
         config.setDriverClassName(driver);
         config.setJdbcUrl(url);
@@ -52,7 +52,7 @@ public class DBConfig implements TransactionManagementConfigurer {
     @Bean
     public LocalContainerEntityManagerFactoryBean configureEntityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(configureDataSource());
+        entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setPackagesToScan("com.ak.entity");
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
@@ -60,7 +60,6 @@ public class DBConfig implements TransactionManagementConfigurer {
         jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
         jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, hbm2ddlAuto);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
-
         return entityManagerFactoryBean;
     }
 
