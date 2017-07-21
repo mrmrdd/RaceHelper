@@ -1,10 +1,9 @@
 package com.ak.controller;
 
 import com.ak.entity.Roles;
-import com.ak.entity.User;
+import com.ak.entity.Uzer;
 import com.ak.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,12 +34,12 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String passUserToForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("uzer", new Uzer());
         return "/registration";
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String addNewUser(@Valid User user, BindingResult bindingResult, Model model) {
+    public String addNewUser(@Valid Uzer user, BindingResult bindingResult, Model model) {
         user.setPassword(pswdEncoder.encode(user.getPassword()));
         if(bindingResult.hasErrors())
             return "/registration";

@@ -1,7 +1,7 @@
 package com.ak.service;
 
 import com.ak.dao.UserDao;
-import com.ak.entity.User;
+import com.ak.entity.Uzer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +18,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void addUser(User user) {
+    public void addUser(Uzer user) {
         userDao.addUser(user);
     }
 
     @Override
-    public User getUserByName(String name) {
+    public Uzer getUserByName(String name) {
         return userDao.getUserByName(name);
     }
 }
