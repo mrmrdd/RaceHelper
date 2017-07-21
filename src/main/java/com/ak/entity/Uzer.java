@@ -8,8 +8,7 @@ import javax.persistence.*;
  * Created by arthur on 7/10/17.
  */
 @Entity
-@Table(name = "t_user")
-public class User {
+public class Uzer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,10 +27,10 @@ public class User {
     @NotEmpty(message = "Please provide an email")
     private String email;
 
-    public User() {
+    public Uzer() {
     }
 
-    public User(String name, String password, Roles role, String email) {
+    public Uzer(String name, String password, Roles role, String email) {
         this.name = name;
         this.password = password;
         this.role = role;
