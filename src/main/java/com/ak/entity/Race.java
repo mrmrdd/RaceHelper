@@ -1,9 +1,6 @@
 package com.ak.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by arthur on 7/11/17.
@@ -16,6 +13,9 @@ public class Race {
     private int race_id;
     private String name;
     private int membersQuantity;
+    @ManyToOne
+    @JoinColumn(name="uzer_id", nullable=false)
+    private Uzer uzer;
 
     public Race() {
     }
@@ -26,6 +26,14 @@ public class Race {
      */
     public Race(String name, int membersQuantity) {
         this.name = name;
+        this.membersQuantity = membersQuantity;
+    }
+
+    public int getMembersQuantity() {
+        return membersQuantity;
+    }
+
+    public void setMembersQuantity(int membersQuantity) {
         this.membersQuantity = membersQuantity;
     }
 
@@ -43,13 +51,5 @@ public class Race {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getMembersQuantity() {
-        return membersQuantity;
-    }
-
-    public void setMembersQuantity(int membersQuantity) {
-        this.membersQuantity = membersQuantity;
     }
 }

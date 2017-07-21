@@ -3,6 +3,7 @@ package com.ak.entity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by arthur on 7/10/17.
@@ -12,7 +13,7 @@ public class Uzer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
+    private int uzer_id;
 
     @NotEmpty(message = "Please provide your first name")
     private String name;
@@ -26,6 +27,9 @@ public class Uzer {
 
     @NotEmpty(message = "Please provide an email")
     private String email;
+
+    @OneToMany(mappedBy = "uzer")
+    private Set<Race> races;
 
     public Uzer() {
     }
