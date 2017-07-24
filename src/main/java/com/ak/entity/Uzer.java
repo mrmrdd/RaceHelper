@@ -13,7 +13,8 @@ public class Uzer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int uzer_id;
+    @Column(name = "uzer_id")
+    private int id;
 
     @NotEmpty(message = "Please provide your first name")
     private String name;
@@ -34,11 +35,25 @@ public class Uzer {
     public Uzer() {
     }
 
+    /**
+     * @param name
+     * @param password
+     * @param role
+     * @param email
+     */
     public Uzer(String name, String password, Roles role, String email) {
         this.name = name;
         this.password = password;
         this.role = role;
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -72,5 +87,13 @@ public class Uzer {
 
     public String getEmail() {
         return email;
+    }
+
+    public Set<Race> getRaces() {
+        return races;
+    }
+
+    public void setRaces(Set<Race> races) {
+        this.races = races;
     }
 }

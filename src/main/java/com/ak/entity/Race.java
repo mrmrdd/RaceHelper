@@ -10,7 +10,8 @@ public class Race {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int race_id;
+    @Column(name = "race_id")
+    private int id;
     private String name;
     private int membersQuantity;
     @ManyToOne
@@ -37,12 +38,12 @@ public class Race {
         this.membersQuantity = membersQuantity;
     }
 
-    public int getRace_id() {
-        return race_id;
+    public int getId() {
+        return id;
     }
 
-    public void setRace_id(int race_id) {
-        this.race_id = race_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -51,5 +52,13 @@ public class Race {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Uzer getUzer() {
+        return uzer;
+    }
+
+    public void setUzer(Uzer uzer) {
+        this.uzer = uzer;
     }
 }
