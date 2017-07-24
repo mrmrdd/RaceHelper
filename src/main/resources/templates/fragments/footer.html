@@ -10,10 +10,10 @@
 
         <footer>
             <span sec:authorize="isAuthenticated()">
-                | Logged user: <span sec:authentication="name"></span> |
-                <a th:href="@{/logout}">Sign Out</a>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
             </span>
-
             <script type="text/javascript"
                     src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
