@@ -5,5 +5,5 @@ package com.ak.entity;
  */
 
 public enum Roles {
-    ADMIN, USER;
+    ROLE_ADMIN, ROLE_USER;
 }

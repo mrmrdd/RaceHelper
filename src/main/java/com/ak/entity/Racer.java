@@ -10,7 +10,8 @@ public class Racer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int racer_id;
+    @Column(name = "racer_id")
+    private int id;
     private String name;
     private String birthday;
     private String category;
@@ -56,12 +57,12 @@ public class Racer {
         this.secondAttempt = secondAttempt;
     }
 
-    public int getRacer_id() {
-        return racer_id;
+    public int getId() {
+        return id;
     }
 
-    public void setRacer_id(int racer_id) {
-        this.racer_id = racer_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
