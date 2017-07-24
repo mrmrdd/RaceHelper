@@ -44,8 +44,10 @@ public class UserController {
         if(bindingResult.hasErrors())
             return "/registration";
 
-        user.setRole(Roles.USER);
+        user.setRole(Roles.ROLE_USER);
         userService.addUser(user);
         return "/login";
     }
+
+
 }
