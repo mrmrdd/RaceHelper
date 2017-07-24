@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
-      xmlns:form="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <head>
     <title>Spring Boot Thymeleaf + Spring Security</title>
 
@@ -27,13 +27,15 @@
                <a th:href="@{/createrace}">Create race</a>
             </span>
 
+        <span sec:authorize="isAuthenticated()">
         <select class="form-control" name="example" id="example">
-            <option value="0">ALL</option>
+            <option value="0">Choose race</option>
             <option th:each="race : ${races}"
                     th:value="${race.id}"
                     th:text="${race.name}">
             </option>
         </select>
+        </span>
     </div>
 
 </div>
