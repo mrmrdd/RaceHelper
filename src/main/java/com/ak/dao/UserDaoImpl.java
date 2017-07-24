@@ -26,4 +26,11 @@ public class UserDaoImpl implements UserDao {
                 .setParameter("name", name)
                 .getSingleResult();
     }
+
+    @Override
+    public Uzer getUserById(String id) {
+        return em.createQuery("from Uzer u where u.name=:id", Uzer.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
 }

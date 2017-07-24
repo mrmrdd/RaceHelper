@@ -8,5 +8,5 @@ import com.ak.entity.Uzer;
 public interface UserDao {
     void addUser(Uzer user);
     Uzer getUserByName(String name);
-
+    Uzer getUserById(String id);
 }
