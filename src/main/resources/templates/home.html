@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <title>Spring Boot Thymeleaf + Spring Security</title>
 
@@ -13,7 +14,10 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Race helper application. To create new race you have to be logged in</h1>
+
+        <span sec:authorize="!isAuthenticated()">
+               <h1>Race helper application. To create new race you have to be logged in</h1>
+            </span>
         <span sec:authorize="!isAuthenticated()">
             <h2>1. Log in <a th:href="@{/login}">enter to system</a></h2>
             <h2>2. Registration <a th:href="@{/registration}">registration for new user</a></h2>
@@ -22,10 +26,17 @@
         <span sec:authorize="isAuthenticated()">
                <a th:href="@{/createrace}">Create race</a>
             </span>
+
+        <select class="form-control" name="example" id="example">
+            <option value="0">ALL</option>
+            <option th:each="race : ${races}"
+                    th:value="${race.id}"
+                    th:text="${race.name}">
+            </option>
+        </select>
     </div>
 
 </div>
-<!-- /.container -->
 
 <div th:replace="fragments/footer :: footer"/>
 
