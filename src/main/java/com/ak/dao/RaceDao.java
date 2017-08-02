@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface RaceDao {
     void addRace(Race race);
-
     List getRacesById(int id);
+    Race getRaceById(int id);
 }

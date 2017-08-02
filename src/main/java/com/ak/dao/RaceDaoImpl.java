@@ -26,4 +26,11 @@ public class RaceDaoImpl implements RaceDao {
                 .setParameter("id", id)
                 .getResultList();
     }
+
+    @Override
+    public Race getRaceById(int id) {
+      return em.createQuery("from Race where race_id=:id", Race.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
 }

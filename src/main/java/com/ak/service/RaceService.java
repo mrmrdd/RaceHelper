@@ -10,4 +10,5 @@ import java.util.List;
 public interface RaceService {
     void addRace(Race race);
     List getRacesById(int id);
+    Race getRaceById(int id);
 }

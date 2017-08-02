@@ -25,4 +25,9 @@ public class RaceServiceImpl implements RaceService{
     public List<Race> getRacesById(int id) {
         return raceDao.getRacesById(id);
     }
+
+    @Override
+    public Race getRaceById(int id) {
+        return raceDao.getRaceById(id);
+    }
 }
