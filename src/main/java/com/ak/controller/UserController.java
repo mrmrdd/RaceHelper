@@ -1,6 +1,6 @@
 package com.ak.controller;
 
-import com.ak.entity.Roles;
+import com.ak.entity.Role;
 import com.ak.entity.Uzer;
 import com.ak.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +27,6 @@ public class UserController {
     @Autowired
     private PasswordEncoder pswdEncoder;
 
-    @GetMapping("/home")
-    public String home() {
-        return "/home";
-    }
-
     @RequestMapping(method = RequestMethod.GET)
     public String passUserToForm(Model model) {
         model.addAttribute("uzer", new Uzer());
@@ -44,7 +39,7 @@ public class UserController {
         if(bindingResult.hasErrors())
             return "/registration";
 
-        user.setRole(Roles.ROLE_USER);
+        user.setRole(Role.ROLE_USER);
         userService.addUser(user);
         return "/login";
     }
