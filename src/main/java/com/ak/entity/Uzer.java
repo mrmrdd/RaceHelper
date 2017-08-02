@@ -24,7 +24,7 @@ public class Uzer {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private Roles role;
+    private Role role;
 
     @NotEmpty(message = "Please provide an email")
     private String email;
@@ -41,7 +41,7 @@ public class Uzer {
      * @param role
      * @param email
      */
-    public Uzer(String name, String password, Roles role, String email) {
+    public Uzer(String name, String password, Role role, String email) {
         this.name = name;
         this.password = password;
         this.role = role;
@@ -64,7 +64,7 @@ public class Uzer {
         this.password = password;
     }
 
-    public void setRole(Roles role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -81,7 +81,7 @@ public class Uzer {
     }
 
     @Enumerated(EnumType.STRING)
-    public Roles getRole() {
+    public Role getRole() {
         return role;
     }
 

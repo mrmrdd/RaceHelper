@@ -14,7 +14,8 @@ public class Racer {
     private int id;
     private String name;
     private String birthday;
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private Category category;
     private int number;
     @Embedded
     @Column(insertable = false, updatable = false)
@@ -33,7 +34,7 @@ public class Racer {
      * @param category
      * @param number
      */
-    public Racer(String name, String birthday, String category, int number) {
+    public Racer(String name, String birthday, Category category, int number) {
         this.name = name;
         this.birthday = birthday;
         this.category = category;
@@ -48,7 +49,7 @@ public class Racer {
      * @param firstAttempt
      * @param secondAttempt
      */
-    public Racer(String name, String birthday, String category, int number, RacerTime firstAttempt, RacerTime secondAttempt) {
+    public Racer(String name, String birthday, Category category, int number, RacerTime firstAttempt, RacerTime secondAttempt) {
         this.name = name;
         this.birthday = birthday;
         this.category = category;
@@ -81,11 +82,11 @@ public class Racer {
         this.birthday = birthday;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
